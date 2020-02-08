@@ -10,6 +10,10 @@
         $password = $_POST['newPass'];
         $cpass = $_POST['cpass'];
 
+        // Data Tambahan
+        $idOfficer = $_POST['idOfficer'];
+        $usr = $_POST['usr'];
+
         // Dapatkan Data Login
         $pass = $data->get('petugas', ['username' => $_SESSION['login_user']]);
 
@@ -19,7 +23,7 @@
             $_SESSION['status_operasi'] = FALSE;
             $_SESSION['ket_operasi'] = 'ConfirmPasswordSalah1';
             $_SESSION['msg'] = 'Confirm Password Tidak Valid';
-            header("location: ../entries-formEditOfficer.php");
+            header("location: ../entries-formEditOfficer.php?Officer=$usr&usr=$usr");
 
         }else{
 

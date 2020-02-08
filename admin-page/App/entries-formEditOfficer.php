@@ -109,6 +109,8 @@
               </div>
             </div>
           </div>
+          <input type="hidden" name="idOfficer" value="<?= $idOfficer; ?>">
+          <input type="hidden" name="usr" value="<?= $usr; ?>">
           <input type="submit" name="btnUpdate" class="btn btn-primary btn-block" value="Update">
         </form>
       </div>
