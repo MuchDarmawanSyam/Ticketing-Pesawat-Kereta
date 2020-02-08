@@ -1,0 +1,14 @@
+1. Urut Kursi dengan looping (nested for/nested while)
+2. Pemesanan (DIUTAMAKAN)
+3. Generate Laporan (DIUTAMAKAN)
+4. Bikin array dan acak di javascript dan inner html-kan ke tulisan slider materialize (Hiburan)
+5. Fix Alert dengan hidden diawal loaad page dengan JQuery
+6. Buat Pagination Untuk Beberapa Halaman (PENTING)
+7. Atur Relasi Beberapa Tabel menjadi cascade (PENTING)
+
+
+if (Kondisi a){
+	Jalankan Kode Disini jika kondisi a terpenuhi
+}else{
+	jalankan kode disini jika kondisi a tidak terpenuhi
+}
