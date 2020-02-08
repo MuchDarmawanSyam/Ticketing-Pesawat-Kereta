@@ -23,7 +23,7 @@
             $_SESSION['status_operasi'] = FALSE;
             $_SESSION['ket_operasi'] = 'ConfirmPasswordSalah1';
             $_SESSION['msg'] = 'Confirm Password Tidak Valid';
-            header("location: ../entries-formEditOfficer.php?Officer=$usr&usr=$usr");
+            header("location: ../entries-formEditOfficer.php?Officer=$idOfficer&usr=$usr");
 
         }else{
 
