@@ -1,0 +1,201 @@
+|=== ASSEMBLY FRAMEWORK ======
+| Versi : 0.7 BETA
+| Dev By : Much Darmawan
+| Group : Assembly Team
+|=============================
+
+===== D O K U M E N T A S I   S E D E R H A N A =====
+
+1. PERMULAAN
+	
+	A. STRUKTUR PROGRAM
+
+		- App [Folder]
+			-Assembly_Core[Folder]
+				-Class[Folder]
+					class.crud.php[File]
+				-connection.php[File]
+			-app.php[File]
+			-config.php[File]
+			-index.php[File]
+		- index.php [File]
+
+
+	B. FILE DAN KEGUNAANNYA
+		- index.php = Halaman Pertama di Masuki dan Secara Otomatis Pidah ke Halaman App/index.php secara Default
+		- app.php = Salah Satu Inti Dari Program
+		- config.php = Salah Satu Inti Dari Program, Tempat Mensetting
+		- App/index.php = Halaman Hasil Redirect Dari Halaman index.php
+		- connection.php = Halaman Koneksi ke Database
+		- class.crud.php = Salah Satu Inti Dari Program, Halaman Class
+	
+
+	C. FILE DOKUMENTASI.txt DAN BUG.txt
+		- Dokumentasi.txt = Panduan Dasar Penggunaan Program Ini
+		- Bug.txt = Halaman yang Menyimpan Kesalahan / Error / Bug, Silahkan Diisi Oke !? :v
+
+2. SETTINGAN AWAL
+	
+	A. index.php
+		- Pada variabel $HOME (baris 22) adalah settingan yang mana nama file tsb adalah yang akan dikunjungi pertama kali
+		  yang terdapat pada folder App defaultnya adalah "index" (jika diartikan akan redirect ke App/index.php), bisa di-
+   		  ubah sesuai kemauan seperti $HOME = 'redirect'; (redirect ke App/redirect.php).
+
+		- Pada $EX (baris 32) adalah format file halaman yang di-redirect defaultnya "php", silahkkan diganti jika formatnya
+		  beda.
+
+	B. config.php
+		- Pada baris 23 adalah settingan DATABASE, pada DBName isi Defaultnya adalah "test" silahkan ganti dengan nama
+		  database yang ingin anda sambungkan (ubah DBHost, DBUser, DBPass jika nilai defaultnya berberda dgn db Anda).
+
+		- pada baris 55 merupakan class yang ingin anda panggil dari App/Assembly_Core/Class/, untuk saat ini hanya berisi
+		  File class.crud.php
+		
+		- Pada Baris Lain Sebaiknya tidak dilakukan perubahan
+
+3. PENGGUNAAN DALAM PROJECT
+
+ 	A. Menggunakan Query Builder
+		- Panggil App.php dengan ketik "require_once("app.php");" atau "require_once "app.php";"
+		- Setiap Halaman Yang ingin penggunaan Query Builder harus dipanggil dulu app.php-nya.
+
+	B. Struktur Script Untuk Query Buildernya
+		- $ini_nama_variable = $crud->ini_nama_fungsi($ini_isi_datanya);
+		- Untuk nama variabel terserah, nama fungsi (create,read,update,delete), dan datanya terserah
+		- untuk $crud itu adalah variabel bawaan program.
+
+
+4. CRUD DATA
+	
+	A. CREATE/TAMBAH DATA (Nama Fungsinya = create)
+		
+		Struktur Script:
+		$crud->create($nama_tabel, $data);	
+
+		Contoh Penggunaan 1:
+		$data = '';
+		$data2 = 'wawan';
+		$data3 = 'putri';
+		$a = $crud->create('crud', [$data, $data2, $data3]);
+		
+
+		Contoh Penggunaan 2:
+		$data = ['id' => '','nama' => 'Syam', 'bio' => 'I am a Human'];
+		$a = $crud->create('crud', ['', $data);
+
+		Contoh Penggunaan 3:
+		$data = ['','xii','rpl'];
+		$a = $crud->create('crud', ['', $data);
+
+		Contoh Penggunaan 4:
+		$a = $crud->create('crud', ['', 'Web Programming', 'Web Designing']);
+
+		// PENTING = UNTUK $data URUTAN ISINYA DIHARUSKAN SESUAI DENGAN URUTAN FIELD DI TABELMU \\
+
+
+
+	B. READ/TAMPIL DATA (Nama Fungsinya = read)
+
+		Struktur Script (TAMPILKAN SEMUA):
+		$crud-read($nama_tabel);
+
+		Struktur Script (TAMPILKAN YG DIPILIH):
+		$crud->read($nama_tabel, ['kolom1','kolom2']);
+
+		Contoh Penggunaan:
+		$a = $crud->read('crud');
+
+		while ($b = $a->fetch_assoc()){
+			echo $b['id'];
+			echo ",";
+			echo $b['nama'];
+			echo ",";
+			echo $b['bio'];
+			echo "<br>";
+		}
+
+		ATAU
+		
+		$a = $crud->read('crud', ['nama','bio']);
+
+		while ($b = $a->fetch_assoc()){
+			echo $b['nama'];
+			echo ",";
+			echo $b['bio'];
+			echo "<br>";
+		}
+
+	
+	C. UPDATE/PERBARUI DATA (Nama Fungsinya = update)
+		
+		Struktur Script:
+		$crud->update($nama_table, ['nama_field_mau_diupdate' => 'isi_mau_diupdate1'], ['nama_field' => 'id_mau_diupdate']);
+
+		Contoh Penggunaan:
+		$table = 'crud';
+		$field_yg_datanya_mau_diupdate = 'nama';
+		$isi_data_terbaru = 'Much Darmawan';
+		
+		$field_patokan = 'id';
+		$isi_patokan = 2;
+
+		$a = $crud->update($table, [$field_yg_datanya_mau_diupdate => $isi_data_terbaru], [$field_patokan => $isi_patokan]);
+		
+		// CONTOH DIATAS DAPAT DIARTIKAN = UPDATE crud SET nama = Much Darmawan WHERE id = 2; //
+
+
+	D. DELETE/HAPUS DATA (Nama Fungsinya = delete)
+		
+		Struktur Script:
+		$crud->delete($table, $kondisi);
+		
+		Contoh Penggunaan:
+		$a = $crud->delete('crud', ['id' => '13']);
+		
+		// CONTOH DIATAS DAPAT DIARTIKAN = DELETE FROM crud WHERE id = 13; //
+
+
+5. GET DATA 
+	
+	A. GET/AMBIL DATA (Nama Fungsinya = get)
+
+		Struktur Script:
+		$data->get($table, [$parameter]);
+
+		Contoh Penggunaan:
+		$a = $data->get('crud', ['id' => '1']);
+
+		echo $a['nama'];
+
+
+6. AUTENTIFIKASI
+
+	A. LOGIN (Nama Fungsinya = login)
+
+		Struktur Script:
+		$auth->login($table, [$parameter]);
+
+		Contoh Penggunaan:
+		$a->login('auth', ['username' => 'admin', 'password' => 'admin']);
+
+
+	B. REDIRECT (Nama Fungsinya = redirect)
+
+		Struktur Script:
+		$auth->redirect($nama/lokasi_file, $opsi_format_file);
+
+		Contoh Penggunaan:
+		$auth->redirect('Welcome');
+
+		ATAU
+
+		$auth->redirect('Welcome', 'html');
+
+
+		NOTE:
+		KEMUNGKINAN FITUR SELANJUTNYA YAITU PERBAIKAN ERROR VIEW
+
+
+
+
+		Copyright 2020 Documented By Much Darmawan - Assembly Team
