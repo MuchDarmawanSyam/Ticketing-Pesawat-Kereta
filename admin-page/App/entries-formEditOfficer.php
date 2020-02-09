@@ -66,7 +66,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <input type="file" name="NewimgProfile" value="Browse Image" class="col-md-12 col-lg-12">
+                <input type="file" name="NewimgProfile" class="col-md-12 col-lg-12">
               </div>
             </div>
           </div>
