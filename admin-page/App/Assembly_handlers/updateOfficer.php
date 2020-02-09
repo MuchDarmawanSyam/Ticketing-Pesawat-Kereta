@@ -34,6 +34,10 @@
 
     }else{
 
-        echo "Illegal Access";
+        $_SESSION['status_operasi'] = FALSE;
+        $_SESSION['ket_operasi'] = 'IllegalAccess';
+        $_SESSION['msg'] = 'Gagal Memuat Halaman. Halaman diakses Secara Illegal';
+
+        header("location: ../entries-manageOfficers.php");
     }
 ?>
