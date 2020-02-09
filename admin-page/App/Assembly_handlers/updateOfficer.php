@@ -22,7 +22,7 @@
             // Jika Salah Satu / Semua Form Ada yang Kosong
             $_SESSION['status_operasi'] = FALSE;
             $_SESSION['ket_operasi'] = 'ConfirmPasswordSalah1';
-            $_SESSION['msg'] = 'Confirm Password Tidak Valid';
+            $_SESSION['msg'] = 'Confirm Password Tidak Valid.';
             header("location: ../entries-formEditOfficer.php?Officer=$idOfficer&usr=$usr");
 
         }else{
@@ -36,7 +36,7 @@
 
         $_SESSION['status_operasi'] = FALSE;
         $_SESSION['ket_operasi'] = 'IllegalAccess';
-        $_SESSION['msg'] = 'Gagal Memuat Halaman. Halaman diakses Secara Illegal';
+        $_SESSION['msg'] = 'Gagal Memuat Halaman. Halaman diakses Secara Illegal.';
 
         header("location: ../entries-manageOfficers.php");
     }

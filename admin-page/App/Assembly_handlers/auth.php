@@ -24,19 +24,19 @@
                     
                 if ($level['id_level'] == '1'){
                     
-                    $_SESSION['msg_login'] = 'Selamat Datang '.$username.', Anda Login Sebagai Administrator';
+                    $_SESSION['msg_login'] = 'Selamat Datang '.$username.', Anda Login Sebagai Administrator.';
                     $_SESSION['lvl_login'] = 'Admin';
                     $_SESSION['administartor'] = TRUE;
                     $auth->redirect("../index");
                 }elseif ($level['id_level'] == '2'){
 
-                    $_SESSION['msg_login'] = 'Selamat Datang '.$username.', Anda Login Sebagai Petugas';
+                    $_SESSION['msg_login'] = 'Selamat Datang '.$username.', Anda Login Sebagai Petugas.';
                     $_SESSION['lvl_login'] = 'Pegawai';
                     $_SESSION['administartor'] = FALSE;
                     $auth->redirect("../index");
                 }else{
 
-                    $_SESSION['msg_failed'] = 'Akun Anda Tidak / Belum Terdaftar dengan BENAR! Jika Anda Adalah Petugas / Otoritas Aplikasi ini Silahkan Hubungi Admin';
+                    $_SESSION['msg_failed'] = 'Akun Anda Tidak / Belum Terdaftar dengan BENAR! Jika Anda Adalah Petugas / Otoritas Aplikasi ini Silahkan Hubungi Admin.';
                     $_SESSION['login_status'] = FALSE;
                     $auth->redirect("../login");
                 }
@@ -58,7 +58,7 @@
 
         $_SESSION['status_operasi'] = FALSE;
         $_SESSION['ket_operasi'] = 'IllegalAccess';
-        $_SESSION['msg'] = 'Gagal Memuat Halaman. Halaman diakses Secara Illegal';
+        $_SESSION['msg'] = 'Gagal Memuat Halaman. Halaman diakses Secara Illegal.';
         $auth->redirect("../check-session");
 
     }
