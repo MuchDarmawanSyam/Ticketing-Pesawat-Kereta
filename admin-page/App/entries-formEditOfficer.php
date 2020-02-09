@@ -103,7 +103,7 @@
             <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-                  <input type="text" id="confirmPassword" name="cpass" class="form-control" placeholder="Confirm Password" required="required">
+                  <input type="password" id="confirmPassword" name="cpass" class="form-control" placeholder="Confirm Password" required="required">
                   <label for="confirmPassword">Confirm Your Password</label>
                 </div>
               </div>
