@@ -34,7 +34,7 @@
         <form action="Assembly_handlers/auth.php" method="POST">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required="required" autofocus="autofocus" autocomlpete="off">
+              <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required="required" autofocus="autofocus" autocomplete="off">
               <label for="inputEmail">Username</label>
             </div>
           </div>
