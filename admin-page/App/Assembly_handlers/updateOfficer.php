@@ -19,7 +19,7 @@
 
         if ($cpass !== $pass['password']){
 
-            // Jika Salah Satu / Semua Form Ada yang Kosong
+            // Jika confirm password salah
             $_SESSION['status_operasi'] = FALSE;
             $_SESSION['ket_operasi'] = 'ConfirmPasswordSalah1';
             $_SESSION['msg'] = 'Confirm Password Tidak Valid.';
@@ -28,6 +28,7 @@
         }else{
 
             
+
         }
 
         

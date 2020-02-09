@@ -4,7 +4,7 @@
 <?php $_SESSION['login_status'] == TRUE ? TRUE : header("location: login.php"); ?>
 <?php
     // +++ Fungsi Dapat Data +++
-        // Dapatkan Kode Akses
+        // Dapatkan Kode Akses dari url
         $idOfficer = $_GET['Officer'];
         $usr = $_GET['usr'];
 
